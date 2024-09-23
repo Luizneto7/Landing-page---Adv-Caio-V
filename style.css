@@ -47,25 +47,37 @@ nav {
 }
 
 nav .logo-wrapper {
-    position: absolute;
-    left: 0;
+    flex: 1;
 }
 
 .logo-wrapper img{
-    height: 5rem;
-    width: 21rem;
+    height: 4rem;
+    width: auto;
     object-fit: cover;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 2.5rem;
+    height: 3px;
+    background-color: var(--color-accent);
 }
 
 nav ul{
     display: flex;
-    gap: 3rem;
-    align-items: center;
+    gap: 2rem;
     list-style: none;
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0;
+    flex: 2;
+    justify-content: left;
+    
 }
 
 nav ul li{
@@ -94,6 +106,10 @@ p {
         font-family: "Enriqueta", serif;
         font-weight: 400;
         font-style: normal;
+}
+
+.menu-toggle {
+    display: none;
 }
 
 .intro-content {
@@ -413,4 +429,37 @@ footer .wrapper .contact-item {
 .float-bar-wrap i {
     margin-right: 8px;
     font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .logo-wrapper img {
+        height: 3rem;
+    }
+
+    body {
+        width: 100%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav, .site-header-wrapper {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg-light);
+        display: none;
+        transition: max-height 0.3s ease;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
 }
